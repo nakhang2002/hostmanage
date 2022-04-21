@@ -4,12 +4,8 @@ FROM node:16.14.2
 
 ENV NODE_ENV=production
 
-WORKDIR /app
-
-COPY ["server.js","package.json", "package-lock.json*", "./"]
+WORKDIR /
 
 RUN npm install --production
-
-COPY . .
 
 CMD [ "node", "server.js" ]
