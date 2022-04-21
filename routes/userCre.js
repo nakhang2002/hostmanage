@@ -14,6 +14,7 @@ app.post("/postUser", async (req, res) => {
     }
 
 })
+//get user
 app.get("/listUser", async (req,res) => {
     u = await user.find().exec((err, results) => {
         try {
@@ -23,6 +24,7 @@ app.get("/listUser", async (req,res) => {
         }
     })
 })
+//edit user
 app.patch("/editUser/:id",async (req,res) => {
     try {
         await user.findByIdAndUpdate(req.params.id, req.body);
@@ -32,6 +34,7 @@ app.patch("/editUser/:id",async (req,res) => {
         res.status(200).send()
     }
 })
+//xoa user
 app.delete("/deleteUser/:id", async (req,res) => {
     try {
         await user.findByIdAndDelete(req.params.id);
