@@ -17,17 +17,17 @@ pipeline {
             }
         }
         stage("build"){
-            agent { 
+           /*  agent { 
                 node {
                     label 'built-in'
                 }
-            }
-             /* agent {
+            } */
+             agent {
                 docker {
                     image "node:lts-bullseye-slim"
                     args "-p 3000:3000"
                 } 
-             }*/
+             }
             environment {
                 DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
             }
