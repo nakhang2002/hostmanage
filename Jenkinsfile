@@ -17,7 +17,12 @@ pipeline {
             }
         }
         stage("build"){
-            agent { node {label 'built-in'}}
+            agent { 
+                node {
+                    label 'built-in'
+                    args "-u 0:0 -v /tmp:/" 
+                }
+            }
              /* agent {
                 docker {
                     image "node:lts-bullseye-slim"
