@@ -20,7 +20,6 @@ pipeline {
             agent { 
                 node {
                     label 'built-in'
-                    args "-u 0:0 -v /tmp:/" 
                 }
             }
              /* agent {
